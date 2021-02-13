@@ -23,16 +23,8 @@ Route::get('/', function () {
 Route::post('/recipes', 'RecipeController@createRecipe');
 Route::get('/recipes', 'RecipeController@getAllRecipes');
 Route::get('/recipes/{id}', 'RecipeController@getSingleRecipe');
-
 Route::patch('/recipes/{id}', 'RecipeController@updateRecipe');
-
-Route::delete('/recipes/{id}', function ($id) {
-    $recipe = [
-        "id" => $id,
-        "ingredients" => "hello, world"
-    ];
-    return $recipe;
-});
+Route::delete('/recipes/{id}', 'RecipeController@deleteRecipe');
 
 
 
