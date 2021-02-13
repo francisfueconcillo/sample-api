@@ -40,7 +40,7 @@ class RecipeController extends Controller
         }
         
         return [
-            "message" => "Recipe was successfully created!",
+            "message" => "Recipe successfully created!",
             "recipe" => [ $recipe ]
         ];
 
