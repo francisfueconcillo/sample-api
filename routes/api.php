@@ -18,14 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/recipes', function () {
-    $recipe = [
-        "id" => 1,
-        "ingredients" => "hello, world"
-    ];
-    return $recipe;
-});
-
+Route::post('/recipes', 'RecipeController@createRecipe');
 Route::get('/recipes', 'RecipeController@getAllRecipes');
 Route::get('/recipes/{id}', 'RecipeController@getSingleRecipe');
 
