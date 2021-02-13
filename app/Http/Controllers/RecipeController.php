@@ -11,11 +11,16 @@ class RecipeController extends Controller
     public function getSingleRecipe($id)
     {
         $recipe = Recipe::where('id', $id)->first();
-        return $recipe;
+        return [
+            "message" => "Recipe details by id",
+            "recipe" =>[ $recipe ]
+        ];
     }
 
     public function getAllRecipes()
     {
-        return  Recipe::all();
+        return  [
+            "recipes" => Recipe::all()
+        ];
     }
 }
