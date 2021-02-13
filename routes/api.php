@@ -18,12 +18,44 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-Route::post('/recipe', function () {
+Route::post('/recipes', function () {
     $recipe = [
         "id" => 1,
         "ingredients" => "hello, world"
     ];
     return $recipe;
 });
+
+Route::get('/recipes', function () {
+    $recipe = [
+        "id" => 1,
+        "ingredients" => "hello, world"
+    ];
+    return $recipe;
+});
+
+
+Route::get('/recipes/{id}', 'RecipeController@getSingleRecipe');
+
+Route::patch('/recipes/{id}', function ($id) {
+    $recipe = [
+        "id" => $id,
+        "ingredients" => "hello, world"
+    ];
+    return $recipe;
+});
+
+Route::delete('/recipes/{id}', function ($id) {
+    $recipe = [
+        "id" => $id,
+        "ingredients" => "hello, world"
+    ];
+    return $recipe;
+});
+
+
+
+
+
+
 
