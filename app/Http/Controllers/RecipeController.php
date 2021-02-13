@@ -104,11 +104,19 @@ class RecipeController extends Controller
 
     public function deleteRecipe($id)
     {
-        try {
-            $recipe = Flight::where('id', $id)->delete();
-        } catch (\Exception $e) {
+        $recipes = Recipe::where('id', $id)->all();
+
+        if (count($recipes) === 0) {
             return [
                 "message" => "No Recipe found",
+            ];
+        }
+
+        try {
+            $recipe = Recipe::where('id', $id)->delete();
+        } catch (\Exception $e) {
+            return [
+                "message" => $e->getMessage(),
             ];
         }
 
