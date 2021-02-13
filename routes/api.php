@@ -26,15 +26,7 @@ Route::post('/recipes', function () {
     return $recipe;
 });
 
-Route::get('/recipes', function () {
-    $recipe = [
-        "id" => 1,
-        "ingredients" => "hello, world"
-    ];
-    return $recipe;
-});
-
-
+Route::get('/recipes', 'RecipeController@getAllRecipes');
 Route::get('/recipes/{id}', 'RecipeController@getSingleRecipe');
 
 Route::patch('/recipes/{id}', function ($id) {
