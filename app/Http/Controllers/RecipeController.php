@@ -104,7 +104,7 @@ class RecipeController extends Controller
 
     public function deleteRecipe($id)
     {
-        $recipes = Recipe::where('id', $id)->all();
+        $recipes = Recipe::where('id', $id);
 
         if (count($recipes) === 0) {
             return [
@@ -113,7 +113,7 @@ class RecipeController extends Controller
         }
 
         try {
-            $recipe = Recipe::where('id', $id)->delete();
+            Recipe::where('id', $id)->delete();
         } catch (\Exception $e) {
             return [
                 "message" => $e->getMessage(),
